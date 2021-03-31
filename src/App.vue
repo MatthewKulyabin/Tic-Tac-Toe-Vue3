@@ -1,16 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <NameInput @name="log" />
+  <TicTacToe v-if="username" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TicTacToe from './components/TicTacToe.vue';
+import NameInput from './components/NameInput.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    TicTacToe,
+    NameInput,
+  },
+  data() {
+    return {
+      username: '',
+    };
+  },
+  methods: {
+    log(data) {
+      this.username = data;
+    }
+  },
 }
 </script>
 
